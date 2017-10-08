@@ -1,0 +1,106 @@
+/**
+ * Black theme for reveal.js.
+ *
+ * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: linear-gradient(to bottom,#ea003e 0%,#a8106b 100%);
+
+// ### Main
+$mainFont: 'Roboto', sans-serif;
+$mainColor: white;
+$linkColor: lightgoldenrodyellow;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: rgba(255, 255, 255, 0.4);
+
+// ### Headings
+$headingFont: 'Permanent Marker', sans-serif;
+$headingFontWeight: bold;
+$headingTextShadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+$heading1TextShadow: $headingTextShadow;
+$headingLetterSpacing: -0.03em;
+$headingTextTransform: none;
+$heading1Size: 225%;
+$heading2Size: 200%;
+$heading3Size: 175%;
+$heading4Size: 150%;
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.hide-me {
+    visibility: hidden;
+}
+
+a { 
+    &::before {
+        display: inline-block;
+        margin-right: 4px;
+        font-family: 'FontAwesome';
+        vertical-align: -5%;
+    }
+
+    &[href*="twitter.com"]::before {
+    content: '\F099';
+    }
+
+    &[href*="mailto"]::before {
+        position: relative;
+        top: -0.15em;
+        content: '\F0E0';
+        font-size: 0.8em;
+        padding-right: 0.2em;
+    }
+
+    &[href*="github.com"]::before {
+        content: '\F09B';
+    }
+}
+
+footer {
+    z-index: 1000;
+    display: none;
+    position: absolute;
+    bottom: 3px;
+    width: 100%;
+    color: rgba($mainColor, 0.5);
+    font-family: $mainFont;
+    font-size: 100%;
+  
+    @media screen and (min-width: 960px) {
+        display: block;
+    }
+
+    ul.inline {
+        width: 100%;
+        margin: 10px 0;
+        padding: 0;
+        text-align: center;
+        box-sizing: border-box;
+    
+        li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}
